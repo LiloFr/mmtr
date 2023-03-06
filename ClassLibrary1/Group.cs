@@ -18,6 +18,12 @@ namespace ClassLibrary1
 
         public int StartYear { get; set; }
 
+        public void GreateGroups()
+        {
+            using(var db = new DBContext()) { 
+            }
+        }
+
         public string GetCode()
         {
             int kourse = DateTime.Now.Year - StartYear;

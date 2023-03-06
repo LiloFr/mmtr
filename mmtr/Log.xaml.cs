@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ClassLibrary1;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +21,16 @@ namespace mmtr
     /// </summary>
     public partial class Log : Window
     {
+        public ObservableCollection<Group> Groups;
         public Log()
         {
             InitializeComponent();
+            Group.CreateGroups();
+
+            using (var db = new DBContext())
+            {
+                db.Groups.ToList().ForEach(i => Groups.Add(i));
+            }
         }
     }
 }

@@ -8,7 +8,10 @@
         Title="Log" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <
+            <Label Content="Фильтр"/>
+            <TextBox/>
+            <ListBox x:Name="groups"
+                     ItemsSource="{Binding Groups}"/>
         </StackPanel>
     </Grid>
 </Window>
