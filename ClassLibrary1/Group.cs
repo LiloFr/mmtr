@@ -18,9 +18,25 @@ namespace ClassLibrary1
 
         public int StartYear { get; set; }
 
-        public void GreateGroups()
+        public static void CreateGroups()
         {
-            using(var db = new DBContext()) { 
+            using(var db = new DBContext()) {
+                Special special = new Special { Code = "П", Name = "Программисты" };
+                db.Specials.Add(special);
+                for (int y = 0; y < 4; y++)
+                {
+                    for (int sg = 0; sg < 2; sg++)
+                    {
+                        Group group = new Group
+                        {
+                            ClassRoom = 9,
+                            SubGroup = sg,
+                            StartYear = 2019 + y,
+                            Special = special
+                        };
+                        db.Groups.Add(group);
+                    }
+                }
             }
         }
 

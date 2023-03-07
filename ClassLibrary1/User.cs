@@ -20,8 +20,6 @@ namespace ClassLibrary1
                 db.Database.Delete();
                 var user = new User { Login = "Admin", PasswordHash = "Admin" };
                 db.Users.Add(user);
-                Special special = new Special { Code = 'П', Name = "Программисты" };
-                db.Specials.Add(special);
                 db.SaveChanges();
             }
 

@@ -25,11 +25,10 @@ namespace mmtr
         public Log()
         {
             InitializeComponent();
-            Group.CreateGroups();
 
             using (var db = new DBContext())
             {
-                db.Groups.ToList().ForEach(i => Groups.Add(i));
+                db.Groups.ToList().ForEach(g => groups.Items.Add(g.GetCode()));
             }
         }
     }
